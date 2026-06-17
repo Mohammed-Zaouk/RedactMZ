@@ -87,10 +87,30 @@ header {
   flex-wrap: wrap;
 }
 header h1 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 15px;
   font-weight: 600;
   letter-spacing: -0.3px;
   margin-right: 4px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 4px;
+}
+.brand-logo {
+  height: 22px;
+  width: auto;
+  display: block;
+  border-radius: 4px;
+}
+.brand-name {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
 }
 
 /* separator */
@@ -306,7 +326,10 @@ aside footer {
 #drop-zone {
   position: fixed;
   inset: 0;
-  background: rgba(10, 10, 14, 0.97);
+  background-color: var(--bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='160'%3E%3Crect x='28' y='30' width='130' height='6' fill='rgba(255,255,255,0.05)'/%3E%3Crect x='28' y='48' width='90' height='6' fill='rgba(255,255,255,0.05)'/%3E%3Crect x='28' y='66' width='112' height='6' fill='rgba(124,110,247,0.16)'/%3E%3Crect x='28' y='84' width='70' height='6' fill='rgba(255,255,255,0.05)'/%3E%3Crect x='28' y='102' width='100' height='6' fill='rgba(255,255,255,0.05)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 240px 160px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -318,12 +341,19 @@ aside footer {
   display: none;
 }
 #drop-zone.drag-over {
-  background: rgba(124, 110, 247, 0.12);
+  background-color: rgba(124, 110, 247, 0.06);
+}
+
+.drop-logo {
+  height: 30px;
+  width: auto;
+  opacity: 0.9;
 }
 
 .drop-icon {
   font-size: 52px;
   line-height: 1;
+  color: var(--muted);
 }
 .drop-title {
   font-size: 22px;
@@ -332,6 +362,19 @@ aside footer {
 .drop-sub {
   color: var(--muted);
   font-size: 14px;
+}
+
+.privacy-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+  color: var(--muted);
+}
+.privacy-line i {
+  font-size: 11px;
+  color: var(--muted);
 }
 
 .drop-or {
@@ -360,6 +403,7 @@ aside footer {
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 #drop-file-btn input {
   position: absolute;
@@ -489,6 +533,9 @@ aside footer {
     align-items: flex-start;
   }
 
+  .drop-logo {
+    height: 26px;
+  }
   .drop-title {
     font-size: 18px;
   }
@@ -505,6 +552,9 @@ aside footer {
   }
   header h1 {
     font-size: 13px;
+  }
+  header h1 img {
+    height: 19px;
   }
   #open-btn,
   button {
@@ -544,6 +594,9 @@ aside footer {
     font-size: 12px;
     margin-right: 0;
   }
+  header h1 img {
+    height: 17px;
+  }
   #open-btn {
     padding: 5px 8px;
     font-size: 12px;
@@ -578,9 +631,8 @@ aside footer {
     padding: 6px;
   }
 
-  #drop-zone {
-    gap: 12px;
-    padding: 20px;
+  .drop-logo {
+    height: 24px;
   }
   .drop-icon {
     font-size: 32px;
@@ -593,6 +645,11 @@ aside footer {
     font-size: 12px;
     text-align: center;
     max-width: 260px;
+  }
+  .privacy-line {
+    font-size: 11px;
+    text-align: center;
+    max-width: 280px;
   }
   .drop-or::before,
   .drop-or::after {

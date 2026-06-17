@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,12 +17,17 @@
   <script src="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
   <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
 </head>
+
 <body>
-  <!-- ── Drop zone overlay ── -->
+<!-- ── Drop zone overlay ── -->
   <div id="drop-zone">
     <div class="drop-icon"><i class="fa-regular fa-file-pdf"></i></div>
     <div class="drop-title">Drop a PDF here</div>
     <div class="drop-sub">Draw boxes over anything you want to hide</div>
+    <div class="privacy-line">
+      <i class="fa-solid fa-shield-halved"></i>
+      100% local — your file never leaves the browser. No uploads, no servers, no database.
+    </div>
     <div class="drop-or">or</div>
     <label id="drop-file-btn">
       <i class="fa-solid fa-upload"></i> Browse file
@@ -31,7 +37,10 @@
 
   <!-- ── Top bar ── -->
   <header>
-    <h1><i class="fa-solid fa-pen-nib"></i> PDF Redactor</h1>
+    <div class="brand">
+      <img src="assets/logo/redactmz.com.png" alt="RedactMZ logo" class="brand-logo">
+      <span class="brand-name">RedactMZ</span>
+    </div>
     <div class="sep"></div>
     <label id="open-btn">
       <i class="fa-regular fa-folder-open"></i>
