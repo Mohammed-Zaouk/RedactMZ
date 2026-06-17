@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RedactMZ</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="public/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="public/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="public/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="public/favicon/site.webmanifest">
+
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+</head>
+<body>
+  <!-- ── Drop zone overlay ── -->
+  <div id="drop-zone">
+    <div class="drop-icon"><i class="fa-regular fa-file-pdf"></i></div>
+    <div class="drop-title">Drop a PDF here</div>
+    <div class="drop-sub">Draw boxes over anything you want to hide</div>
+    <div class="drop-or">or</div>
+    <label id="drop-file-btn">
+      <i class="fa-solid fa-upload"></i> Browse file
+      <input type="file" accept=".pdf" id="drop-input">
+    </label>
+  </div>
+
+  <!-- ── Top bar ── -->
+  <header>
+    <h1><i class="fa-solid fa-pen-nib"></i> PDF Redactor</h1>
+    <div class="sep"></div>
+    <label id="open-btn">
+      <i class="fa-regular fa-folder-open"></i>
+      Open PDF
+      <input type="file" accept=".pdf" id="file-input">
+    </label>
+    <div class="sep"></div>
+    <div class="color-row">
+      <label><i class="fa-solid fa-fill-drip"></i> Fill:</label>
+      <div class="swatch black active" data-color="#000000" title="Black"></div>
+      <div class="swatch white" data-color="#ffffff" title="White"></div>
+      <div class="swatch custom" id="custom-swatch" title="Custom color"></div>
+      <input type="color" id="custom-color" value="#ff0000">
+    </div>
+    <div class="sep"></div>
+    <div class="page-nav">
+      <button id="prev-btn" disabled><i class="fa-solid fa-chevron-left"></i> Prev</button>
+      <span id="page-info">—</span>
+      <button id="next-btn" disabled>Next <i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+  </header>
+
+  <!-- ── Main layout ── -->
+  <main>
+    <!-- Sidebar -->
+    <aside>
+      <h2><i class="fa-solid fa-list-check"></i> Redactions</h2>
+      <div id="redaction-list">
+        <p id="empty-hint">
+          <i class="fa-regular fa-hand-pointer"></i>
+          Draw boxes on the PDF to mark areas for redaction.
+        </p>
+      </div>
+      <footer>
+        <button class="danger" id="clear-btn" disabled>
+          <i class="fa-solid fa-trash"></i> Clear all
+        </button>
+        <button class="primary" id="apply-btn" disabled>
+          <i class="fa-solid fa-download"></i> Download redacted PDF
+        </button>
+      </footer>
+    </aside>
+
+    <!-- Canvas area -->
+    <div id="canvas-area">
+      <div id="canvas-wrapper">
+        <canvas id="pdf-canvas"></canvas>
+        <canvas id="draw-canvas"></canvas>
+      </div>
+    </div>
+  </main>
+
+  <div id="status-bar"><i class="fa-solid fa-circle-info"></i> No file loaded.</div>
+  <div id="toast"></div>
+
+  <!-- ── Single entry point — app.js imports everything else ── -->
+  <script type="module" src="src/js/app.js""></script>
+</body>
+</html>
