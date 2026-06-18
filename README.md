@@ -1,4 +1,4 @@
-# Redactly
+# RedactMZ
 
 A free, browser-based PDF redaction tool. Draw boxes over the parts of a document you want to hide, and download a clean copy — no uploads, no server, no account.
 
