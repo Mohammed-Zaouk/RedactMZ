@@ -12,7 +12,7 @@ I needed to redact sensitive info from PDFs before adding them to my portfolio, 
 
 Most "free" PDF redaction tools online work by uploading your file to someone else's server, processing it there, and sending it back. For a tool whose entire purpose is hiding sensitive information, that's a strange trust model — you're handing the sensitive document to a third party just to black part of it out.
 
-Redactly runs entirely in the browser. The PDF you open never leaves your machine; there's no backend, no upload step, and no network request involving your file at any point. It's also a small, readable codebase (plain JavaScript, no framework, no build step) that I built as a way to learn how PDF rendering, canvas drawing, and PDF generation actually work under the hood — rather than relying on a library that does all of it as a black box.
+RedactMZ runs entirely in the browser. The PDF you open never leaves your machine; there's no backend, no upload step, and no network request involving your file at any point. It's also a small, readable codebase (plain JavaScript, no framework, no build step) that I built as a way to learn how PDF rendering, canvas drawing, and PDF generation actually work under the hood — rather than relying on a library that does all of it as a black box.
 
 ## How it works
 
