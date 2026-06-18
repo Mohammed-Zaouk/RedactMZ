@@ -8,9 +8,11 @@ A free, browser-based PDF redaction tool. Draw boxes over the parts of a documen
 
 ## Why I built this
 
+I needed to redact sensitive info from PDFs before adding them to my portfolio, and went looking for a tool to do it. The options were surprisingly bad: paid services, or "free" ones that felt like a sketchy deal somewhere.
+
 Most "free" PDF redaction tools online work by uploading your file to someone else's server, processing it there, and sending it back. For a tool whose entire purpose is hiding sensitive information, that's a strange trust model — you're handing the sensitive document to a third party just to black part of it out.
 
-Redactly runs entirely in the browser. The PDF you open never leaves your machine; there's no backend, no upload step, and no network request involving your file at any point. It's also a small, readable codebase (plain JavaScript, no framework, no build step) that I built as a way to learn how PDF rendering, canvas drawing, and PDF generation actually work under the hood — rather than relying on a library that does all of it as a black box.
+RedactMZ runs entirely in the browser. The PDF you open never leaves your machine; there's no backend, no upload step, and no network request involving your file at any point. It's also a small, readable codebase (plain JavaScript, no framework, no build step) that I built as a way to learn how PDF rendering, canvas drawing, and PDF generation actually work under the hood — rather than relying on a library that does all of it as a black box.
 
 ## How it works
 
@@ -18,7 +20,7 @@ Redactly runs entirely in the browser. The PDF you open never leaves your machin
 2. You draw rectangles over anything you want hidden — names, account numbers, photos, whatever.
 3. On export, every page is rasterized (turned into a flattened image) with your redaction boxes baked permanently into the pixels, then reassembled into a new PDF using [pdf-lib](https://pdf-lib.js.org/).
 
-That last step matters: simply drawing a black box _on top of_ existing PDF text doesn't actually delete the text underneath — it's still selectable and extractable by anyone who copies it or runs it through a text-extraction tool. Redactly avoids that trap by flattening each page to an image before re-exporting, so there's no text layer left to recover. The trade-off is that the exported PDF is no longer searchable or text-selectable anywhere, not just under the redacted areas — a reasonable cost for a tool whose job is making sure something is actually gone.
+That last step matters: simply drawing a black box _on top of_ existing PDF text doesn't actually delete the text underneath — it's still selectable and extractable by anyone who copies it or runs it through a text-extraction tool. RedactMZ avoids that trap by flattening each page to an image before re-exporting, so there's no text layer left to recover. The trade-off is that the exported PDF is no longer searchable or text-selectable anywhere, not just under the redacted areas — a reasonable cost for a tool whose job is making sure something is actually gone.
 
 ## Features
 
